@@ -1,14 +1,12 @@
 const json = require('./input1.json');
-var fs = require('fs');
 
-let sum = 0;
+let part1Sum = 0;
+let part2Sum = 0;
 
 json.forEach(scramble => {
-  // "4567 stuff is fun4you 67".match(/^\d+|\d+\b|\d+(?=\w)/g); //=> ["4567", "4", "67"]
-
   //Part 1
-  // let numbers = scramble.match(/^\d+|\d+\b|\d+(?=\w)/g);
-  // sum+= +(numbers[0].charAt(0)) * 10 + +numbers[numbers.length-1] % 10;
+  let part1Numbers = scramble.match(/^\d+|\d+\b|\d+(?=\w)/g);
+  part1Sum+= +(part1Numbers[0].charAt(0)) * 10 + +part1Numbers[part1Numbers.length-1] % 10;
 
   // Part 2
   let letters = scramble.split("");
@@ -39,11 +37,8 @@ json.forEach(scramble => {
     }
   }
 
-  // let result = numbers[0] * 10 + numbers[numbers.length-1];
-  // if(result == 23) {
-  //   console.log(numbers)
-  // }
-  sum += numbers[0] * 10 + numbers[numbers.length-1]
+  part2Sum += numbers[0] * 10 + numbers[numbers.length-1]
 })
 
-console.log(sum);
+console.log(part1Sum);
+console.log(part2Sum);
