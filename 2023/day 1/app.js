@@ -5,10 +5,12 @@ let part2Sum = 0;
 
 json.forEach(scramble => {
   //Part 1
+  
   let part1Numbers = scramble.match(/^\d+|\d+\b|\d+(?=\w)/g);
   part1Sum+= +(part1Numbers[0].charAt(0)) * 10 + +part1Numbers[part1Numbers.length-1] % 10;
 
   // Part 2
+  // Better way is to add on line 8 scramble.replace(regexstatment)
   let letters = scramble.split("");
   let numbers = []; 
   for(let i = 0; i < letters.length; i++) {
