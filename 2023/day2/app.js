@@ -1,4 +1,5 @@
-const arr = require('./puzzle1.json');
+const start = Date.now();
+import arr from './puzzle1.json' assert {type: 'json'};
 
 let redCubes = 12;
 let greenCubes = 13;
@@ -47,3 +48,4 @@ let result = arr.reduce((sum, game) => {
 }, 0);
 
 console.log(result);
+console.log(`Execution time: ${(Date.now() - start)/1000}s`);

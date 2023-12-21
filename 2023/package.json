@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "lodash-math": "^0.0.7"
+  },
+  "type": "module"
+}
