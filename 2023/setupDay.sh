@@ -10,7 +10,6 @@ YEAR=$(date '+%Y')
 FOLDER="day$DAY"
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 NEW_FOLDER="$CURRENT_DIR/day$DAY"
-SESSION=""
 
 if [ ! -d "$NEW_FOLDER" ]; then
   mkdir "$NEW_FOLDER"
