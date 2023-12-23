@@ -125,60 +125,60 @@ console.log('Goal', _.sum(part1.map(r => r.filter(s => s.current == 'O').length)
 // console.log(part1.length)
 
 let largeGrid = [];
-let radius = 202300
-// let radius = 4
-// for(let i = 0; i < 2 * radius + 1; i ++){
-//   let row = []
-//   for(let j = 0; j < 2 * radius + 1; j ++){
-//     let character = '.'
-//     // if(i == 0 && j == radius) {
-//     //   character = 'N'
-//     // } else if(i == 2 * radius && j == radius) {
-//     //   character = 'S'
-//     // } else if(i == radius && j == 0) {
-//     //   character = 'W'
-//     // } else if(i == radius && j == 2 * radius) {
-//     //   character = 'E'
-//     // }
-//     row.push(character)
-//   }
-//   largeGrid.push(row);
-// }
-// largeGrid[0][radius] = 'N'
-// largeGrid[largeGrid.length - 1][radius] = 'S'
-// largeGrid[radius][0] = 'W'
-// largeGrid[radius][largeGrid.length - 1] = 'E'
-// for (let i = 1; i < radius; i ++) {
-//   largeGrid[radius - i][i] = '['  // top left
-//   largeGrid[radius + i][i] = '\\' // bottom left
-// }
-// for (let i = largeGrid.length - 2; i > radius; i --) {
-//   largeGrid[i - radius][i] = ']' // top right
-//   largeGrid[largeGrid.length - 1 - (i - radius)][i] = '/' // bottom right
-// }
-// largeGrid[radius][radius] = 'o';
-// let checkSurronding = [{i: radius, j: radius}];
-// while(checkSurronding.length) {
-//   let check = checkSurronding.splice(0,1)[0]
-//   let current = largeGrid[check.i][check.j];
-//   let setToCheck = [
-//     {i: check.i + 1, j: check.j},
-//     {i: check.i - 1, j: check.j},
-//     {i: check.i, j: check.j + 1},
-//     {i: check.i, j: check.j - 1},
-//   ]
+// let radius = 202300
+let radius = 4
+for(let i = 0; i < 2 * radius + 1; i ++){
+  let row = []
+  for(let j = 0; j < 2 * radius + 1; j ++){
+    let character = '.'
+    // if(i == 0 && j == radius) {
+    //   character = 'N'
+    // } else if(i == 2 * radius && j == radius) {
+    //   character = 'S'
+    // } else if(i == radius && j == 0) {
+    //   character = 'W'
+    // } else if(i == radius && j == 2 * radius) {
+    //   character = 'E'
+    // }
+    row.push(character)
+  }
+  largeGrid.push(row);
+}
+largeGrid[0][radius] = 'N'
+largeGrid[largeGrid.length - 1][radius] = 'S'
+largeGrid[radius][0] = 'W'
+largeGrid[radius][largeGrid.length - 1] = 'E'
+for (let i = 1; i < radius; i ++) {
+  largeGrid[radius - i][i] = '['  // top left
+  largeGrid[radius + i][i] = '\\' // bottom left
+}
+for (let i = largeGrid.length - 2; i > radius; i --) {
+  largeGrid[i - radius][i] = ']' // top right
+  largeGrid[largeGrid.length - 1 - (i - radius)][i] = '/' // bottom right
+}
+largeGrid[radius][radius] = 'o';
+let checkSurronding = [{i: radius, j: radius}];
+while(checkSurronding.length) {
+  let check = checkSurronding.splice(0,1)[0]
+  let current = largeGrid[check.i][check.j];
+  let setToCheck = [
+    {i: check.i + 1, j: check.j},
+    {i: check.i - 1, j: check.j},
+    {i: check.i, j: check.j + 1},
+    {i: check.i, j: check.j - 1},
+  ]
 
-//   setToCheck.forEach(set => {
-//     if(_.checkArrayBounds(largeGrid, set.i, set.j) && largeGrid[set.i][set.j] == '.') {
-//       if(current === 'o') {
-//         largeGrid[set.i][set.j] = 'e'
-//       } else {
-//         largeGrid[set.i][set.j] = 'o'
-//       }
-//       checkSurronding.push({i: set.i, j: set.j})
-//     }
-//   })
-// }
+  setToCheck.forEach(set => {
+    if(_.checkArrayBounds(largeGrid, set.i, set.j) && largeGrid[set.i][set.j] == '.') {
+      if(current === 'o') {
+        largeGrid[set.i][set.j] = 'e'
+      } else {
+        largeGrid[set.i][set.j] = 'o'
+      }
+      checkSurronding.push({i: set.i, j: set.j})
+    }
+  })
+}
 
 let numberOfDiagonals = radius - 1;
 let evens = 0;
@@ -192,7 +192,7 @@ if(radius % 2 === 1) {
 }
 
 // what the grid looks like before splitting out
-// console.log(largeGrid.map(r => r.join("")).join('\n'))
+console.log(largeGrid.map(r => r.join("")).join('\n'))
 // console.log('e', _.sum(largeGrid.map(r => r.filter(e => e == 'e').length)))
 // console.log('evens', evens)
 // console.log('o', _.sum(largeGrid.map(r => r.filter(e => e == 'o').length)))
