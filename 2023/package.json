@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "lodash-math": "^0.0.7"
+    "lodash-math": "^0.0.7",
+    "z3-solver": "^4.12.4"
   },
   "type": "module"
 }
